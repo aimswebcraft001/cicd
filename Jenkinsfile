@@ -6,7 +6,8 @@ pipeline {
         MULE_HOME='/opt/mule/mule-enterprise-standalone-3.9.1'
     } 
     stages {
-        stage('Build - App') { 
+        stage('Build - App') {
+            deleteDir() 
             steps {
                 echo '### Build ###'
                 dir('project') {
