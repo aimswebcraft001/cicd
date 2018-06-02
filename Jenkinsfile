@@ -5,7 +5,7 @@ pipeline {
             steps {
                 echo 'Build'
                 git url: 'https://github.com/aimswebcraft001/ciMuleProject.git'
-                sh 'mvn clean install' 
+                sh 'mvn clean install -DskipTests=true' 
             }
         }
         stage('Unit Test') { 
