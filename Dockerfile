@@ -24,8 +24,8 @@ VOLUME      ["/opt/mule/mule-enterprise-standalone-3.9.1/logs", "/opt/mule/mule-
 #RUN         mule-enterprise-standalone-3.9.1/bin/mule -installLicense mule-enterprise-standalone-3.9.1/conf/mule-ee-license.lic
 
 #Check if Mule Licence is installed
-RUN ls -ltr mule-enterprise-standalone-3.9.1/conf/
-CMD echo "------ Licence installed ! --------"
+#RUN ls -ltr mule-enterprise-standalone-3.9.1/conf/
+#CMD echo "------ Licence installed ! --------"
 
 #Copy and deploy mule application in runtime
 CMD echo "------ Deploying mule application in runtime ! --------"
