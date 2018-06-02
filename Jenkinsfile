@@ -22,6 +22,7 @@ pipeline {
         stage('Deploy') { 
             steps {
                 echo '### Deploy ###'
+                sh 'ls -l'
                 sh '''
                     mvn org.mule.tools.maven:mule-maven-plugin:deploy \
                     -Dmule.home="${MULE_HOME}" \
