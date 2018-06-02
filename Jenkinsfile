@@ -44,6 +44,7 @@ pipeline {
                     git url: 'https://github.com/aimswebcraft001/cicd.git'
                     sh '''
                         cp -v /opt/mule/mule-ee-distribution-standalone-3.9.1.zip .
+                        cp -v "${WORKSPACE}/projecct/target/helloworld.zip" .
                         ls -ltrh
                         docker build -t mule-ee:3.9.1 -f Dockerfile .
                     '''
