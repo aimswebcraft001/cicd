@@ -55,7 +55,6 @@ pipeline {
         stage('Run Container') { 
             steps {
                 echo '### Run Mule-EE Contaier ###'
-                docker.image('mule-ee:3.9.1')
             }
         }
     }
