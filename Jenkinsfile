@@ -4,7 +4,8 @@ pipeline {
         stage('Build') { 
             steps {
                 echo 'Build'
-                git url: 'https://github.com/aimswebcraft001/cicd.git' 
+                git url: 'https://github.com/aimswebcraft001/ciMuleProject.git'
+                sh 'mvn clean install' 
             }
         }
         stage('Unit Test') { 
