@@ -16,7 +16,7 @@ pipeline {
         stage('Unit Test') { 
             steps {
                 echo '### Unit Test ###'
-                sh 'mvn test' 
+                sh 'mvn integration-test' 
             }
         }
         stage('Deploy - Local') { 
@@ -28,12 +28,6 @@ pipeline {
                     -Dmule.application.name="${APPLICATION_NAME}" \
                     -Dmule.application="${WORKSPACE}/target/${APPLICATION_NAME}-${RELEASE_VERSION}-SNAPSHOT.zip" \
                 ''' 
-            }
-        }
-        stage('Test') { 
-            steps {
-                echo '### Test ###'
-                sh 'mvn integration-test' 
             }
         }
     }
