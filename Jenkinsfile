@@ -32,7 +32,7 @@ pipeline {
                         mvn org.mule.tools.maven:mule-maven-plugin:deploy \
                         -Dmule.home="${MULE_HOME}" \
                         -Dmule.application.name="${APPLICATION_NAME}" \
-                        -Dmule.application="${WORKSPACE}/target/${APPLICATION_NAME}-${RELEASE_VERSION}-SNAPSHOT.zip" \
+                        -Dmule.application="target/${APPLICATION_NAME}-${RELEASE_VERSION}-SNAPSHOT.zip" \
                     '''
                 }
                  
