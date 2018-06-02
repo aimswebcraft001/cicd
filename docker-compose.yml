@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+   mule-ee:
+     image: mule-ee:3.9.1
+     restart: always
+     ports:
+      - "9082:9082"
+      - "8082:8081"
