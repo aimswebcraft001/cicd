@@ -4,7 +4,7 @@ MAINTAINER Aimswebcraft001
 #Add Mule runtime in Docker Container
 CMD echo "------ Add Mule runtime in Docker Container --------"
 CMD mkdir -p /opt/mule
-ADD  mule-ee-distribution-standalone-3.9.1.zip /opt/mule
+ADD  mule-ee-distribution-standalone-3.9.1.zip /opt/mule/
 
 #Add Work Directory
 CMD echo "------ Adding Work Directory --------"
