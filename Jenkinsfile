@@ -22,12 +22,11 @@ pipeline {
         stage('Deploy') { 
             steps {
                 echo '### Deploy ###'
-                sh 'ls -ltrh target'
                 sh '''
                     mvn org.mule.tools.maven:mule-maven-plugin:deploy \
                     -Dmule.home="${MULE_HOME}" \
                     -Dmule.application.name="${APPLICATION_NAME}" \
-                    -Dmule.application="${APPLICATION_NAME}-${RELEASE_VERSION}-SNAPSHOT.zip" \
+                    -Dmule.application="${WORKSPACE}/target/${APPLICATION_NAME}-${RELEASE_VERSION}-SNAPSHOT.zip" \
                 ''' 
             }
         }
