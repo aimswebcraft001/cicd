@@ -3,11 +3,12 @@ MAINTAINER Aimswebcraft001
 
 #Add Mule runtime in Docker Container
 CMD echo "------ Add Mule runtime in Docker Container --------"
-ADD  mule-ee-distribution-standalone-3.9.1.zip /Mule
+CMD mkdir -p /opt/mule
+ADD  mule-ee-distribution-standalone-3.9.1.zip /opt/mule
 
 #Add Work Directory
 CMD echo "------ Adding Work Directory --------"
-WORKDIR /Mule
+WORKDIR /opt/mule
 
 #Unzip the runtime distro
 CMD echo "------ Unzipping the distro --------"
@@ -15,7 +16,7 @@ RUN         unzip mule-ee-distribution-standalone-3.9.1.zip && \
             rm mule-ee-distribution-standalone-3.9.1.zip
 
 # Define volumes
-VOLUME      ["/Mule/mule-enterprise-standalone-3.8.5/logs", "/Mule/mule-enterprise-standalone-3.8.5/apps", "/Mule/mule-enterprise-standalone-3.8.5/domains"]
+VOLUME      ["/opt/mule/mule-enterprise-standalone-3.9.1/logs", "/opt/mule/mule-enterprise-standalone-3.9.1/apps", "/opt/mule/mule-enterprise-standalone-3.9.1/domains"]
 
 # Copy and install license
 CMD echo "------ Copy and install license --------"
@@ -28,7 +29,7 @@ CMD echo "------ Licence installed ! --------"
 
 #Copy and deploy mule application in runtime
 CMD echo "------ Deploying mule application in runtime ! --------"
-COPY  helloworld-1.0-SNAPSHOT.zip mule-enterprise-standalone-3.9.1/apps/
+COPY  helloworld.zip mule-enterprise-standalone-3.9.1/apps/
 RUN ls -ltr mule-enterprise-standalone-3.9.1/apps/
 # HTTP Service Port
 # Expose the necessary port ranges as required by the Mule Apps
