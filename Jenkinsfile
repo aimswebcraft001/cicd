@@ -46,7 +46,6 @@ pipeline {
                     sh '''
                         cp -v /opt/mule/mule-ee-distribution-standalone-3.9.1.zip .
                         cp -v "${WORKSPACE}/project/target/helloworld.zip" .
-                        ls -ltrh
                         docker build -t mule-ee:3.9.1 -f Dockerfile .
                     '''
                 }
@@ -55,6 +54,9 @@ pipeline {
         stage('Run Container') { 
             steps {
                 echo '### Run Mule-EE Contaier ###'
+                dir('scripts') {
+                    sh 'docker-compose up -d'
+                }
             }
         }
     }
