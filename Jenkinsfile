@@ -19,7 +19,7 @@ pipeline {
                 sh 'mvn test' 
             }
         }
-        stage('Deploy') { 
+        stage('Deploy - Local') { 
             steps {
                 echo '### Deploy ###'
                 sh '''
@@ -28,6 +28,12 @@ pipeline {
                     -Dmule.application.name="${APPLICATION_NAME}" \
                     -Dmule.application="${WORKSPACE}/target/${APPLICATION_NAME}-${RELEASE_VERSION}-SNAPSHOT.zip" \
                 ''' 
+            }
+        }
+        stage('Test') { 
+            steps {
+                echo '### Test ###'
+                sh 'mvn integration-test' 
             }
         }
     }
