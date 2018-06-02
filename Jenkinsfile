@@ -6,7 +6,7 @@ pipeline {
         MULE_HOME='/opt/mule/mule-enterprise-standalone-3.9.1'
     } 
     stages {
-        stage('Build') { 
+        stage('Build - App') { 
             steps {
                 echo '### Build ###'
                 dir('project') {
@@ -37,7 +37,7 @@ pipeline {
                  
             }
         }
-        stage('Build Docker Image') { 
+        stage('Build - Docker Image') { 
             steps {
                 echo '### Build Mule-EE Docker Image ###'
                 dir('scripts') {
