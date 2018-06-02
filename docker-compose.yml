@@ -1,7 +1,8 @@
-version: '3'
+version: '2'
 
 services:
    mule-ee:
+     container_name: mule-ee
      image: mule-ee:3.9.1
      restart: always
      ports:
