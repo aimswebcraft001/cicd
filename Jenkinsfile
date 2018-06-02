@@ -33,8 +33,10 @@ pipeline {
         stage('Build Docker Image') { 
             steps {
                 echo '### Build Mule-EE Docker Image ###'
-                cp -v /opt/mule/mule-ee-distribution-standalone-3.9.1.zip "${WORKSPACE}"
-                sh 'docker build -t mule-ee:3.9.1 -f Dockerfile .'
+                sh '''
+                    cp -v /opt/mule/mule-ee-distribution-standalone-3.9.1.zip "${WORKSPACE}"
+                    docker build -t mule-ee:3.9.1 -f Dockerfile .
+                '''
             }
         }
     }
