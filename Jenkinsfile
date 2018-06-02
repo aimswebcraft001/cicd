@@ -30,5 +30,11 @@ pipeline {
                 ''' 
             }
         }
+        stage('Build Docker Image') { 
+            steps {
+                echo '### Build Mule-EE Docker Image ###'
+                sh 'docker build -t mule-ee:3.9.1 -f Dockerfile .' 
+            }
+        }
     }
 }
