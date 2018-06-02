@@ -16,7 +16,7 @@ pipeline {
         stage('Unit Test') { 
             steps {
                 echo '### Unit Test ###'
-                sh 'mvn integration-test' 
+                sh 'mvn test' 
             }
         }
         stage('Deploy - Local') { 
