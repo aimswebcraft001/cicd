@@ -19,9 +19,9 @@ RUN         unzip mule-ee-distribution-standalone-3.9.1.zip && \
 VOLUME      ["/opt/mule/mule-enterprise-standalone-3.9.1/logs", "/opt/mule/mule-enterprise-standalone-3.9.1/apps", "/opt/mule/mule-enterprise-standalone-3.9.1/domains"]
 
 # Copy and install license
-CMD echo "------ Copy and install license --------"
-COPY        mule-ee-license.lic mule-enterprise-standalone-3.9.1/conf/
-RUN         mule-enterprise-standalone-3.9.1/bin/mule -installLicense mule-enterprise-standalone-3.9.1/conf/mule-ee-license.lic
+#CMD echo "------ Copy and install license --------"
+#COPY        mule-ee-license.lic mule-enterprise-standalone-3.9.1/conf/
+#RUN         mule-enterprise-standalone-3.9.1/bin/mule -installLicense mule-enterprise-standalone-3.9.1/conf/mule-ee-license.lic
 
 #Check if Mule Licence is installed
 RUN ls -ltr mule-enterprise-standalone-3.9.1/conf/
