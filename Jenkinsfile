@@ -19,7 +19,7 @@ pipeline {
                 sh 'mvn test' 
             }
         }
-        stage('Deploy - Local') { 
+        stage('Deploy') { 
             steps {
                 echo '### Deploy ###'
                 sh '''
