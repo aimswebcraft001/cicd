@@ -7,9 +7,9 @@ pipeline {
     } 
     stages {
         stage('Build - App') {
-            deleteDir() 
             steps {
                 echo '### Build ###'
+                cleanWs()
                 dir('project') {
                     git url: 'https://github.com/aimswebcraft001/ciMuleProject.git'
                     sh 'mvn clean install -DskipTests=true' 
