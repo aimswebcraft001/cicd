@@ -35,6 +35,7 @@ pipeline {
                 echo '### Build Mule-EE Docker Image ###'
                 sh '''
                     cp -v /opt/mule/mule-ee-distribution-standalone-3.9.1.zip "${WORKSPACE}"
+                    ls -ltrh
                     docker build -t mule-ee:3.9.1 -f Dockerfile .
                 '''
             }
