@@ -3,7 +3,8 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                echo 'Build' 
+                echo 'Build'
+                git url: 'https://github.com/aimswebcraft001/cicd.git' 
             }
         }
         stage('Unit Test') { 
