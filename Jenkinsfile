@@ -28,12 +28,11 @@ pipeline {
             steps {
                 echo '### Deploy ###'
                 dir('project') {
-                    sh 'cp -v target/${APPLICATION_NAME}-${RELEASE_VERSION}-SNAPSHOT.zip ${APPLICATION_NAME}.zip'
                     sh '''
                         mvn org.mule.tools.maven:mule-maven-plugin:deploy \
                         -Dmule.home="${MULE_HOME}" \
                         -Dmule.application.name="${APPLICATION_NAME}" \
-                        -Dmule.application="${APPLICATION_NAME}.zip" \
+                        -Dmule.application="target/${APPLICATION_NAME}-${RELEASE_VERSION}-SNAPSHOT.zip" \
                     '''
                 }
                  
@@ -46,7 +45,7 @@ pipeline {
                     git url: 'https://github.com/aimswebcraft001/cicd.git'
                     sh '''
                         cp -v /opt/mule/mule-ee-distribution-standalone-3.9.1.zip .
-                        cp -v "${WORKSPACE}/project/helloworld.zip" .
+                        cp -v "${WORKSPACE}/project/target/helloworld.zip" .
                         docker build -t mule-ee:3.9.1 -f Dockerfile .
                     '''
                 }
