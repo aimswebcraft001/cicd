@@ -28,12 +28,12 @@ pipeline {
             steps {
                 echo '### Deploy ###'
                 dir('project') {
-                    sh 'cp -v target/${APPLICATION_NAME}-${RELEASE_VERSION}-SNAPSHOT.zip target/${APPLICATION_NAME}.zip'
+                    sh 'cp -v target/${APPLICATION_NAME}-${RELEASE_VERSION}-SNAPSHOT.zip ${APPLICATION_NAME}.zip'
                     sh '''
                         mvn org.mule.tools.maven:mule-maven-plugin:deploy \
                         -Dmule.home="${MULE_HOME}" \
                         -Dmule.application.name="${APPLICATION_NAME}" \
-                        -Dmule.application="target/${APPLICATION_NAME}.zip" \
+                        -Dmule.application="${APPLICATION_NAME}.zip" \
                     '''
                 }
                  
